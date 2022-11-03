@@ -18,11 +18,27 @@
   <title>이설희 | 부트스트랩 연습하기</title>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   <link href="./css/newjeans.css" rel="stylesheet">
+
+  <script>
+    $(document).ready(function(){
+      $.ajax({
+        type: "GET",
+        url: "http://spartacodingclub.shop/sparta_api/weather/incheon",
+        data: {},
+        success: function(response){
+            let temp = response['temp'];
+
+            $('#temp').text(temp);
+        }
+      })
+    });
+  </script>
 </head>
 
 <body>
   <div class="mytitle">
     <h1>뉴진스 팬명록</h1>
+    <p>현재기온 : <span id="temp"></span> 도</p>
   </div>
 
   <div class="fanpost">
